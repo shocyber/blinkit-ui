@@ -17,11 +17,11 @@ const PaymentPage = () => {
     (state) => state.cart
   );
   const device = useAppSelector((state) => state.device.device);
-  const [date, setDate] = useState({ year: "", month: "" });
+  const [date, setDate] = useState({ year: 2023, month: 1 });
 
   const expiry = () => {
     let month;
-    if (date.month.length === 1) {
+    if (date.month.toString().length === 1) {
       month = "0" + date.month;
     }
     const year = new Date().getFullYear();
@@ -141,8 +141,8 @@ const PaymentPage = () => {
                         year={new Date().getFullYear()}
                         required={true}
                         defaultValue="MM"
-                        value={1}
-                        numeric={false}
+                        value={date.month}
+                        numeric={true}
                         onChange={(month: any) => {
                           setDate((prev) => ({ ...prev, month }));
                         }}
@@ -160,7 +160,7 @@ const PaymentPage = () => {
                         defaultValue={"YYYY"}
                         start={2023}
                         end={2099}
-                        value={2023}
+                        value={date.year}
                         required
                         onChange={(year: any) => {
                           setDate((prev) => ({ ...prev, year }));
