@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 import Spinner from "../components/shared/Spinner";
 import { useAppSelector } from "../hooks/useAppSelector";
-import Misc from "../lib/data/layout.json";
 import { useDeviceData } from "react-device-detect";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { setDevice } from "../store/device";

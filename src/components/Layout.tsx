@@ -7,7 +7,7 @@ import Modal from "./Modal";
 import { CartPanel } from "./cart";
 import AddressBar from "./address/Address";
 import { useAppSelector } from "../hooks/useAppSelector";
-import PaymentPage from "./payment/PaymentPage";
+ 
 
 type Props = {
   noFooter?: boolean;
@@ -38,7 +38,6 @@ const Layout = ({ noFooter, component }: Props) => {
         <CartButtonBig />
       </div>
 
-      {payment && <PaymentPage />}
       {addressPanel && <AddressBar />}
       {cartShown && <CartPanel />}
       {modalShown && <Modal />}

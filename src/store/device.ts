@@ -1,7 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  device: {},
+interface DeviceInfo {
+  device: {
+    model: null;
+    os: null;
+    vendor: null;
+  };
+}
+const initialState: DeviceInfo = {
+  device: {
+    model: null,
+    os: null,
+    vendor: null,
+  },
 };
 
 const deviceSlice = createSlice({

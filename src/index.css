@@ -17,6 +17,16 @@
  src: local("Caros Medium"),
   url("./assets/fonts/Caros-Medium.otf") format("truetype"); 
 }
+@font-face {
+ font-family: "Caros Light";
+ src: local("Caros Light"),
+  url("./assets/fonts/Caros-Light.otf") format("truetype"); 
+}
+@font-face {
+ font-family: "Caros Thin";
+ src: local("Caros Thin"),
+  url("./assets/fonts/Caros-Thin.otf") format("truetype"); 
+}
 :root {
   color-scheme: light;
   font-synthesis: none;
@@ -54,6 +64,16 @@ html {
 }
 .font-caros-md {
   font-family: "Caros Medium";
+}
+.font-caros-light {
+  font-family: "Caros Light";
+  
+}
+.font-caros-thin {
+  font-family: "Caros Thin";
+}
+.font-wg{
+  font-weight: 600;
 }
 @layer components {
   ._container {
@@ -148,9 +168,13 @@ input[type="radio"] {
   padding: 10px;
   font-size: normal;  
   width: 100%;
-  background-color: #f0f3f8fe;
-  border-radius: 3px;
-  border: 1px solid #dcdcdc;
+  background-color: #f7f8fafe;
+  border:1px solid #c9c9cafe;
+  border-radius: 10px;
+}
+ 
+._input[type=text]:focus {
+  border: 1px solid #000;
 }
 @media screen and (max-width: 640px) {
   ._nav {

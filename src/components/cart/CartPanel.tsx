@@ -168,7 +168,7 @@ const CartPanel = () => {
                   <del className="text-sm ml-1">₹{totalAmount}</del>
                 </div>
                 <div
-                  className="ml-auto flex items-center font-bold"
+                  className="ml-auto flex items-center font-bold text-lg"
                   onClick={handleDeliveryLocation}
                 >
                   Proceed <FiChevronRight size={18} className="ml-2" />

@@ -1,28 +1,26 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { FiChevronRight } from "react-icons/fi";
+
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 
-import { shuffleItems } from "../../utils/helper";
 import { hideAddressBar } from "../../store/address";
 import { showPayment } from "../../store/payment";
 import { show } from "../../store/modal";
-import { hideCart } from "../../store/ui";
-const times = [10, 15, 20, 25, 30, 35, 40, 22, 33];
+import PaymentPage from "../payment/PaymentPage";
+import { GrLocation } from "react-icons/gr";
 const AddressBar = () => {
   const dispatch = useAppDispatch();
 
-  const { city, state, postcode } = useAppSelector(
+  const { city, state, postcode, country } = useAppSelector(
     (state) => state.location.address
   );
   const [info, setInfo] = useState<any | null>({
-    name: "",
-    line1: "",
-    line2: "",
-    city,
-    state,
-    postcode,
+    address: "",
+    floor: "",
+    landmark: "",
+    receiverName: "",
+    receiverPhone: "",
   });
   const [isFinal, setIsFinal] = useState(false);
   const onAddressInputChange = (e: any) => {
@@ -30,12 +28,11 @@ const AddressBar = () => {
   };
   const onSubmite = () => {
     if (
-      info.name === "" ||
-      info.line1 === "" ||
-      info.line2 === "" ||
-      info.city === "" ||
-      info.state === "" ||
-      info.postcode === ""
+      info.address === "" ||
+      info.floor === "" ||
+      info.landmark === "" ||
+      info.receiverName === "" ||
+      info.receiverPhone === ""
     ) {
       dispatch(show({ type: "error", data: "Please Enter All Details" }));
     } else {
@@ -43,42 +40,6 @@ const AddressBar = () => {
     }
   };
 
-  const FinalAddress = () => {
-    return (
-      <div className="flex-1">
-        <div className="space-y-3 my-3">
-          <div className="bg-white">
-            <div className="flex justify-between">
-              <div className="font-bold text-xl text-black pt-5 px-4">
-                Final Address
-              </div>
-              <div
-                className="font-bold text-md text-indigo-600 pt-5 px-4"
-                onClick={() => setIsFinal(false)}
-              >
-                Change
-              </div>
-            </div>
-            <div className="px-4 text-xs space-y-2 py-2">
-              <p className="font-semibold text-sm">
-                {`${info.line1}, ${info.line2} ,${info.city} ,${info.state}-${info.postcode}`}
-              </p>
-            </div>
-          </div>
-          <div className="bg-white border-y _border-muted">
-            <div className="flex flex-col px-4 pt-5">
-              <div className="flex justify-between _text-muted text-xs">
-                <p className="text-sm _text-default font-bold mb-1">
-                  Delivery will be Attemp in {shuffleItems(times)[0]} minutes.
-                  Be Ready to Recieve Your Order
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
   const handleChange = () => {
     dispatch(hideAddressBar());
     dispatch(showPayment());
@@ -91,9 +52,19 @@ const AddressBar = () => {
       />
       <aside className="_drawer flex flex-col overflow-y-auto overflow-x-hidden">
         <div className="sticky top-0 bg-white flex items-center justify-between p-4">
-          <h2 className="font-extrabold text-xl _text-default">
-            Deliver To {info.city}-{info.postcode}
-          </h2>
+          <figure className="font-extrabold text-md _text-default ">
+            <div className="flex flex-inline">
+              <GrLocation size={14} className="mt-1" />
+              <p className="mx-1">
+                Deliver To {city}-{postcode}
+              </p>
+            </div>
+
+            <p className="text-xs">
+              {state}, {country}
+            </p>
+          </figure>
+
           <IoClose
             size={24}
             className="cursor-pointer"
@@ -101,100 +72,173 @@ const AddressBar = () => {
           />
         </div>
         {isFinal ? (
-          <FinalAddress />
+          <PaymentPage phone={info.receiverPhone} setIsFinal={setIsFinal} />
         ) : (
           <>
-            <div className="flex-1">
+            <div className="flex-1 bg-white">
               <div className="space-y-3 my-3">
-                <div className="bg-white">
-                  <div className="font-bold text-xl text-black pt-5 px-4 font-caros-md">
-                    Contact Info
-                  </div>
-                  <div className="px-4 text-xs space-y-2 py-2">
-                    <div>
-                      <label className="block mb-2 text-sm font-medium text-black font-caros-md">
-                        Full Name
-                      </label>
-                      <input
-                        id="name"
-                        type="text"
-                        className="_input"
-                        onChange={onAddressInputChange}
-                      />
-                    </div>
+                <div className="">
+                  <div className=" text-black p-1 rounded-2xl  font-caros-light">
+                    <fieldset className="flex flex-wrap gap-4 mt-4">
+                      <div>
+                        <input
+                          type="radio"
+                          name="ColorOption"
+                          className="peer hidden"
+                          defaultChecked
+                        />
+
+                        <label
+                          htmlFor="ColorBlack"
+                          className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
+                        >
+                          <p className="text-sm font-medium">Home</p>
+                        </label>
+                      </div>
+
+                      <div>
+                        <input
+                          type="radio"
+                          name="ColorOption"
+                          value="ColorRed"
+                          id="ColorRed"
+                          className="peer hidden"
+                          defaultChecked={false}
+                        />
+
+                        <label
+                          htmlFor="ColorRed"
+                          className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
+                        >
+                          <p className="text-sm font-medium">Work</p>
+                        </label>
+                      </div>
+
+                      <div>
+                        <input
+                          type="radio"
+                          name="ColorOption"
+                          value="ColorBlue"
+                          id="ColorBlue"
+                          className="peer hidden"
+                          defaultChecked={false}
+                        />
+
+                        <label
+                          htmlFor="ColorBlue"
+                          className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
+                        >
+                          <p className="text-sm font-medium">Hotel</p>
+                        </label>
+                      </div>
+
+                      <div>
+                        <input
+                          type="radio"
+                          name="ColorOption"
+                          value="ColorGold"
+                          id="ColorGold"
+                          className="peer hidden"
+                          defaultChecked={false}
+                        />
+
+                        <label
+                          htmlFor="ColorGold"
+                          className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
+                        >
+                          <p className="text-sm font-medium">
+                            Freinds & Family
+                          </p>
+                        </label>
+                      </div>
+                    </fieldset>
                   </div>
                 </div>
                 <div className="flex-1">
                   <div className="space-y-3 my-3">
                     <div className="bg-white">
-                      <div className="font-bold text-xl text-black pt-5 px-4 font-caros">
-                        Address
-                      </div>
                       <div className="px-4 text-sm space-y-2 py-2">
-                        <div>
-                          <label className="block mb-2 text-sm font-medium text-black font-caros-md">
-                            Address Line 1
-                          </label>
-
+                        <div className="relative">
                           <input
-                            id="line1"
+                            id="address"
+                            defaultValue={info.address}
                             type="text"
-                            className="_input"
+                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            placeholder=" "
                             onChange={onAddressInputChange}
                           />
-                        </div>
-                        <div>
-                          <label className="block mb-2 text-sm font-medium text-black  font-caros-md">
-                            Address Line 2
+                          <label
+                            htmlFor="address"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                          >
+                            Complete Address
                           </label>
-
+                        </div>
+                        <div className="relative">
                           <input
-                            id="line2"
+                            id="floor"
+                            defaultValue={info.floor}
                             type="text"
-                            className="_input "
+                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            placeholder=" "
                             onChange={onAddressInputChange}
                           />
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                          <div>
-                            <label className="block mb-2 text-sm font-medium text-black  font-caros-md">
-                              PostCode
-                            </label>
-
-                            <input
-                              id="postcode"
-                              type="number"
-                              defaultValue={info.postcode}
-                              className="_input "
-                              onChange={onAddressInputChange}
-                            />
-                          </div>{" "}
-                          <div>
-                            <label className="block mb-2 text-sm font-medium text-black  font-caros-md">
-                              City
-                            </label>
-
-                            <input
-                              id="city"
-                              type="text"
-                              defaultValue={info.city}
-                              className="_input "
-                              onChange={onAddressInputChange}
-                            />
-                          </div>
-                        </div>
-                        <div>
-                          <label className="block mb-2 text-sm font-medium text-black  font-caros-md">
-                            State
+                          <label
+                            htmlFor="floor"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                          >
+                            Floor (optional)
                           </label>
+                        </div>
+
+                        <div className="relative">
                           <input
-                            id="state"
+                            id="landmark"
                             type="text"
-                            defaultValue={info.state}
-                            className="_input "
+                            defaultValue={info.landmark}
+                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            placeholder=" "
                             onChange={onAddressInputChange}
                           />
+                          <label
+                            htmlFor="landmark"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                          >
+                            NearBy Landmark (optional)
+                          </label>
+                        </div>
+                        <div className="relative">
+                          <input
+                            id="receiverName"
+                            type="text"
+                            defaultValue={info.receiverName}
+                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            placeholder=" "
+                            onChange={onAddressInputChange}
+                          />
+                          <label
+                            htmlFor="receiverName"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                          >
+                            Receiver's Name *
+                          </label>
+                        </div>
+                        <div className="relative">
+                          <input
+                            defaultValue={info.receiverPhone}
+                            type="text"
+                            id="receiverPhone"
+                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            placeholder=" "
+                            maxLength={10}
+                            onChange={onAddressInputChange}
+                          />
+                          <label
+                            htmlFor="receiverPhone"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                          >
+                            Receiver's Phone (optional)
+                          </label>
                         </div>
                       </div>
                     </div>
@@ -204,20 +248,13 @@ const AddressBar = () => {
             </div>
           </>
         )}
-        <div className=" bg-white flex items-center justify-between p-4">
-          <h2 className="font-extrabold text-xl _text-default font-caros-md">
-            Next Step - Checkout
-          </h2>
-        </div>
+
         <div
-          className="sticky bottom-0 px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
+          className="text-center bottom-0 px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
           onClick={isFinal ? handleChange : onSubmite}
         >
-          <div className="bg-[#0c831f] cursor-pointer text-white flex items-center px-3 py-3 rounded-[4px] font-medium text-[14px]">
-            <div className="ml-auto flex items-center font-bold font-caros-bold text-sm">
-              Proceed
-              <FiChevronRight size={18} className="ml-2" />
-            </div>
+          <div className="bg-[#0c831f] cursor-pointer  text-white     px-3 py-3 rounded-lg font-medium text-ld">
+            Save Address
           </div>
         </div>
       </aside>
