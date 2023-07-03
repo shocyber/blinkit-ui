@@ -5,6 +5,8 @@ import uiReducer from './ui'
 import locationReducer from "./location";
 import addressReducer from "./address";
 import paymentReducer from "./payment";
+import deviceReducer from "./device";
+import loaderReducer from "./loader";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ const store = configureStore({
     location: locationReducer,
     address: addressReducer,
     payment: paymentReducer,
+    loader: loaderReducer,
+    device: deviceReducer,
   },
 });
 

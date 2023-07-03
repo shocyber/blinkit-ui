@@ -39,52 +39,40 @@ const UsefulLinks: string[] = [
 
 const PaymentPartners = [
   {
-    logoName: 'mobikwik',
-    alt: 'MobikWik',
+    logoName: "mobikwik",
+    alt: "MobikWik",
   },
   {
-    logoName: 'paytm',
-    alt: 'PayTm',
+    logoName: "paytm",
+    alt: "PayTm",
   },
   {
-    logoName: 'visa',
-    alt: 'Visa',
+    logoName: "visa",
+    alt: "Visa",
   },
   {
-    logoName: 'mastercard',
-    alt: 'Mastercard',
+    logoName: "mastercard",
+    alt: "Mastercard",
   },
   {
-    logoName: 'maestro',
-    alt: 'Maestro',
+    logoName: "maestro",
+    alt: "Maestro",
   },
   {
-    logoName: 'rupay',
-    alt: 'RuPay',
+    logoName: "rupay",
+    alt: "RuPay",
   },
   {
-    logoName: 'amex',
-    alt: 'American Express',
+    logoName: "amex",
+    alt: "American Express",
   },
   {
-    logoName: 'sodex',
-    alt: 'Sodexo',
+    logoName: "sodex",
+    alt: "Sodexo",
   },
   {
-    logoName: 'bhim',
-    alt: 'BHIM UPI',
-  },
-  {
-    logoName: '',
-    alt: 'Net Banking',
-  },
-  {
-    logoName: '',
-    alt: 'Cash on Delivery',
-  },
-  {
-    logoName: '',
-    alt: 'bringIt cash',
+    logoName: "bhim",
+    alt: "BHIM UPI",
   },
 ];
 
@@ -114,7 +102,7 @@ const Footer = () => {
                   className="cursor-pointer text-[15px] _text-default w-full xs:w-[50%]"
                   key={cat.id}
                 >
-                  <Link to={cat.link}>{cat.text}</Link>
+                  <span>{cat.text}</span>
                 </div>
               ))}
             </div>
@@ -139,9 +127,9 @@ const Footer = () => {
           <h4 className="font-bold my-6 text-lg">Brands</h4>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {allBrands.map((brand, i) => (
-              <Link key={i} to={`brand/${brand.link}`}>
-                <span className="_text-default text-sm">{brand.text}</span>
-              </Link>
+              <span className="_text-default text-sm" key={i}>
+                {brand.text}
+              </span>
             ))}
           </div>
         </div>

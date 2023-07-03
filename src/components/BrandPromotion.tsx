@@ -79,14 +79,14 @@ const BrandPromotion = () => {
                     <IoCheckmarkCircle
                       size={24}
                       className="text-green-600 mr-3"
-                    />{' '}
+                    />{" "}
                     <span>Miss live order tracking</span>
                   </div>
                   <div className="flex items-center">
                     <IoCheckmarkCircle
                       size={24}
                       className="text-green-600 mr-3"
-                    />{' '}
+                    />{" "}
                     <span>Miss latest feature updates</span>
                   </div>
                 </div>
@@ -134,11 +134,9 @@ const BrandPromotion = () => {
           </div>
           <div className="border-b _border-light pt-2 pb-10">
             <p className="text-sm _text-default">
-              "BringIt" is owned & managed by "Bring Commerce Private Limited"
-              (formerly known as Loafers Inc Private Limited) and is not
-              related, linked or interconnected in whatsoever manner or nature,
-              to "LOAFER.COM" which is a real estate services business operated
-              by "Blackstone Consultancy Services Fake Limited".
+              "blinkit" is owned & managed by "blinkit Commerce Private Limited"
+              and is not related, linked or interconnected in whatsoever manner
+              or nature, to "LOAFER.COM"
             </p>
           </div>
         </div>

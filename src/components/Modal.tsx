@@ -18,9 +18,7 @@ const Modal = () => {
     case "discount":
       output = <DiscountInfo data={data} onClose={handleClose} />;
       break;
-    case "location":
-      output = "detected location";
-      break;
+
     case "error":
       output = <Alert type="error" data={data} />;
       break;

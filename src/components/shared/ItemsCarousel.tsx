@@ -48,34 +48,21 @@ const responsive = {
   },
   minimobile: {
     breakpoint: { max: 420, min: 0 },
-    items: 1,
+    items: 2,
     slidesToSlide: 1,
     partialVisibilityGutter: -20,
   },
 };
 
-const ItemsCarousel = (props: Props) => {
-  const items = shuffleItems(props.topItems);
-
+const ItemsCarousel = ({ products }: { products: [] }) => {
   return (
-    <div className="max-h-[290px] mb-8 flex w-full relative">
+    <div className="max-h-fit mb-8 flex w-full relative">
       <div className="flex-1 overflow-auto">
-        <Carousel
-          swipeable={false}
-          draggable={false}
-          responsive={responsive}
-          arrows={false}
-          renderButtonGroupOutside={true}
-          customButtonGroup={<CarouselButtonGroup />}
-          shouldResetAutoplay={false}
-          infinite={false}
-          itemClass="text-center"
-          partialVisible
-        >
-          {items?.map((item, i) => (
+        <div className="grid grid-cols-2  lg:grid-cols-6 md:grid-cols-4">
+          {products?.map((item, i) => (
             <ProductCard key={i} data={item} />
           ))}
-        </Carousel>
+        </div>
       </div>
     </div>
   );

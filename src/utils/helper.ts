@@ -48,7 +48,7 @@ const getProductById = (id: string | undefined ) => {
     return product || null
   }
 }
- 
+
 const offers = [
   {
     name: "Bank Offer",

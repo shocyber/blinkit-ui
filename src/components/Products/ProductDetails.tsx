@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { getProductForCart } from '../../utils/helper';
 import { ProductItemDetailed } from '../../utils/types';
 import { allFeatures } from '../BrandPromotion';
-import { AddToCartButton } from '../shared';
-import Breadcrumb from './Breadcrumb';
-import ProductGallery from './ProductGallery';
-import ProductInfoList from './ProductInfoList';
-import ProductVarients from './ProductVarients';
+import { AddToCartButton } from "../shared";
+import ProductGallery from "./ProductGallery";
+import ProductInfoList from "./ProductInfoList";
+import ProductVarients from "./ProductVarients";
 
 const ProductDetails = (props: any) => {
   const {
@@ -33,13 +32,12 @@ const ProductDetails = (props: any) => {
       <div className="static lg:block">
         <div className="relative top-0 lg:sticky lg:top-[100px]">
           <div className="px-4 lg:pl-12 lg:pt-8">
-            <Breadcrumb {...currentProduct} />
             <h1 className="text-[28px] leading-tight py-3">
               {currentProduct.name}
             </h1>
             <Link to="/">
               <div className="cursor-pointer text-[#0c831f] font-semibold text-lg flex items-center">
-                {currentProduct.brand}{' '}
+                {currentProduct.brand}{" "}
                 <IoCaretForwardSharp size={14} className="ml-0.5" />
               </div>
             </Link>

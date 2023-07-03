@@ -1,15 +1,7 @@
-import Breadcrumb from './Breadcrumb';
-import ProductDetails from './ProductDetails';
-import ProductGallery from './ProductGallery';
-import ProductInfoList from './ProductInfoList';
-import MoreProducts from './MoreProducts';
-import ProductVarients from './ProductVarients';
+import ProductDetails from "./ProductDetails";
+import ProductGallery from "./ProductGallery";
+import ProductInfoList from "./ProductInfoList";
 
-export {
-  ProductDetails,
-  MoreProducts,
-  Breadcrumb,
-  ProductInfoList,
-  ProductGallery,
-  ProductVarients,
-};
+import ProductVarients from "./ProductVarients";
+
+export { ProductDetails, ProductInfoList, ProductGallery, ProductVarients };

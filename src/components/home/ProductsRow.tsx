@@ -1,24 +1,20 @@
-import { ProductRow } from '../../utils/types';
-import ItemsCarousel from '../shared/ItemsCarousel';
+import ProductCard from "../ProductCard";
 
-const ProductsRow = ({ data, objects }: ProductRow) => {
-  const products = objects.map((obj) =>
-    obj.data.products.map((product: any) => product[0])
-  )[0];
-
+const ProductsRow = ({ products }: { products: any }) => {
   return (
     <section>
-      {data.show_header && (
-        <div className="flex items-center justify-between h-16">
-          <h2 className="font-bold text-[26px] _text-default">{data.title}</h2>
-          {data.show_view_all && (
-            <span className="text-green-700 font-bold cursor-pointer text-lg">
-              {data.title_action}
-            </span>
-          )}
+      <div className="flex items-center justify-between h-16">
+        <h2 className="font-bold text-[26px] _text-default">Products</h2>
+      </div>
+      <div className="max-h-fit mb-8 flex w-full relative">
+        <div className="flex-1 overflow-auto">
+          <div className="grid grid-cols-2  lg:grid-cols-6 md:grid-cols-4">
+            {products?.map((item: any, i: number) => (
+              <ProductCard key={i} data={item} />
+            ))}
+          </div>
         </div>
-      )}
-      <ItemsCarousel topItems={products} />
+      </div>
     </section>
   );
 };

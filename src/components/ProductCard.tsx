@@ -1,10 +1,7 @@
-import { useNavigate } from 'react-router-dom';
-import AddToCartButton from './shared/AddToCartButton';
-import { CartProduct, ProductItem } from '../utils/types';
-import { convertTextToURLSlug } from '../utils/helper';
+import AddToCartButton from "./shared/AddToCartButton";
+import { CartProduct, ProductItem } from "../utils/types";
 
-const ProductCard = ({ data }: { data: ProductItem }) => {
-  const navigate = useNavigate();
+const ProductCard = ({ data }: { data: any }) => {
   const { product_id, name, unit, price, mrp, image_url, discount } = data;
 
   const cartProduct: CartProduct = {
@@ -16,18 +13,8 @@ const ProductCard = ({ data }: { data: ProductItem }) => {
     mrp,
   };
 
-  const handleProductClick = () => {
-    // const pname = convertTextToURLSlug(data.name);
-    // navigate({
-    //   pathname: `/prn/${pname}/prid/${data.product_id}`,
-    // });
-  };
-
   return (
-    <div
-      className="_card h-[270px] w-[180px]   relative flex cursor-pointer mb-2  sm:mx-0"
-      onClick={handleProductClick}
-    >
+    <div className="_card h-[270px] w-[180px]   relative flex cursor-pointer mb-2  sm:mx-0">
       {data.offer && (
         <div className="absolute bg-blue-600 text-white px-3 py-1 text-xs font-medium -left-[1px] top-4 rounded-tr-xl rounded-br-xl uppercase">
           {data.offer}

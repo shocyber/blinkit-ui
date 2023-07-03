@@ -19,10 +19,10 @@ const Success = ({ data }: { data: string | null }) => {
           </h2>
 
           <a
-            className="mt-8 inline-block w-full rounded-full bg-pink-600 py-4 text-sm font-bold text-white shadow-xl"
+            className="mt-8 inline-block w-full rounded-full bg-green-600 py-4 text-sm font-bold text-white shadow-xl"
             href=""
           >
-            Hold On
+            Home
           </a>
         </div>
       </section>

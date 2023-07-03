@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { currentLocation, setError, setAddress } from "../store/location";
+import { IoChevronDown } from "react-icons/io5";
+import { show } from "../store/modal";
 const LocationPicker = () => {
   const dispatch = useAppDispatch();
   const options = {
@@ -22,7 +24,7 @@ const LocationPicker = () => {
         };
 
         fetch(
-          `https://api.geoapify.com/v1/geocode/reverse?lat=${crd.latitude}&lon=${crd.longitude}&apiKey=1710e3efc9584f3b91f830ed65002ea3`,
+          `https://api.geoapify.com/v1/geocode/reverse?lat=${crd.latitude}&lon=${crd.longitude}&apiKey=c5938d4b4ba54796a2e6c0880efb4a5b`,
           requestOptions
         )
           .then((response) => response.json())
@@ -65,13 +67,16 @@ const LocationPicker = () => {
           <p className="font-semibold text-lg leading-tight">
             Delivery in 30 minutes
           </p>
-          <span className="text-sm _text-default font-bold">
-            {err
-              ? "Please Allow Location Detect"
-              : loading
-              ? "Fetching Location"
-              : `Deliver to ${location.city}-${location.state_code}`}
-          </span>
+
+          <div className="inline-flex mx-2 cursor-pointer">
+            <span className="text-sm _text-default font-bold">
+              {err
+                ? "Please Allow Location Detect"
+                : loading
+                ? "Fetching Location"
+                : `Deliver to ${location.city}-${location.state_code}`}
+            </span>
+          </div>
         </div>
       )}
     </div>

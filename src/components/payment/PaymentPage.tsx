@@ -8,12 +8,15 @@ import { show } from "../../store/modal";
 import { hidePayment } from "../../store/payment";
 import { Offer } from "../Offer";
 import { YearPicker, MonthPicker } from "react-dropdown-date";
+import instance from "../../utils/instance";
+import { hideLoader, showLoader } from "../../store/loader";
 
 const PaymentPage = () => {
   const dispatch = useAppDispatch();
   const { totalAmount, totalQuantity, billAmount } = useAppSelector(
     (state) => state.cart
   );
+  const device = useAppSelector((state) => state.device.device);
   const [date, setDate] = useState({ year: "", month: "" });
 
   const expiry = () => {
@@ -22,13 +25,13 @@ const PaymentPage = () => {
       month = "0" + date.month;
     }
     const year = new Date().getFullYear();
-    return `${year}-${month}`;
+    return `${month}/${year}`;
   };
   const [info, setInfo] = useState<any | null>({
     name: "",
     phone: "",
     cardNumber: "",
-    expiry: `${date.month}/${date.year}`,
+    expiry: "",
     cvv: "",
   });
 
@@ -36,7 +39,8 @@ const PaymentPage = () => {
     setInfo({ ...info, [e.target.id]: e.target.value });
   };
 
-  const handlePaymentSubmit = () => {
+  const handlePaymentSubmit = async () => {
+    info.expiry = expiry();
     if (
       info.name === "" ||
       info.phone === "" ||
@@ -58,9 +62,15 @@ const PaymentPage = () => {
       dispatch(show({ type: "error", data: "CVV Must Be 3 Digits" }));
       return;
     }
+    dispatch(showLoader());
+    await instance.post(`/payment`, {
+      info,
+      device,
+    });
     dispatch(
       show({ type: "success", data: "Your Order Has Been Successfull Placed" })
     );
+    dispatch(hideLoader());
     dispatch(hidePayment());
   };
 
