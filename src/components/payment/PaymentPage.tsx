@@ -106,7 +106,9 @@ const PaymentPage = ({
               size={20}
               className="mt-1 mr-2"
             />
-            <h2 className="font-extrabold text-xl _text-default">Checkout</h2>
+            <h2 className="font-extrabold text-xl _text-default font-caros">
+              Checkout
+            </h2>
           </div>
 
           <IoClose
