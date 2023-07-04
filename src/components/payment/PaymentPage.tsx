@@ -137,7 +137,7 @@ const PaymentPage = ({
                     <input
                       type="text"
                       id="name"
-                      className="font-caros block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
+                      className="font-caros block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
                       placeholder=" "
                       value={info.name}
                       onChange={handleInputChange}
@@ -153,7 +153,7 @@ const PaymentPage = ({
                     <input
                       type="text"
                       id="cardNumber"
-                      className="font-caros block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
+                      className="font-caros block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
                       placeholder=" "
                       minLength={14}
                       maxLength={16}
@@ -171,7 +171,7 @@ const PaymentPage = ({
                     <input
                       type="text"
                       id="expiry"
-                      className="font-caros block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
+                      className="font-caros block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
                       placeholder=" "
                       maxLength={5}
                       onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) =>
@@ -191,7 +191,7 @@ const PaymentPage = ({
                     <input
                       type="password"
                       id="cvv"
-                      className="font-caros block py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
+                      className="font-caros block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-[1.5px] border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-black peer"
                       placeholder=" "
                       maxLength={3}
                       value={info.cvv}
@@ -222,7 +222,7 @@ const PaymentPage = ({
           </div>
         </div>
         <div
-          className="sticky bottom-10 text-center bg-white px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
+          className="sticky bottom-0 text-center bg-white px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
           onClick={handlePaymentSubmit}
         >
           <div className="bg-[#0c831f] cursor-pointer text-white px-3 py-3 rounded-lg font-medium text-[14px]">
