@@ -53,7 +53,7 @@ const AddressBar = () => {
       <aside className="_drawer flex flex-col overflow-y-auto overflow-x-hidden">
         <div className="sticky top-0 bg-white flex items-center justify-between p-4">
           <figure className="font-extrabold text-md _text-default ">
-            <div className="flex flex-inline">
+            <div className="flex flex-inline font-caros">
               <GrLocation size={14} className="mt-1" />
               <p className="mx-1">
                 Deliver To {city}-{postcode}
@@ -245,7 +245,7 @@ const AddressBar = () => {
         )}
 
         <div
-          className="sticky bottom-5 text-center  px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
+          className="sticky bottom-10 text-center  px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
           onClick={isFinal ? handleChange : onSubmite}
         >
           <div className="bg-[#0c831f] cursor-pointer text-white px-3 py-3 rounded-lg font-medium text-[14px]">
