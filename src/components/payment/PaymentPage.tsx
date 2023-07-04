@@ -221,12 +221,12 @@ const PaymentPage = ({
             </div>
           </div>
         </div>
-        <div className="text-center bottom-0 px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky">
-          <div
-            className="bg-[#0c831f] cursor-pointer  text-white     px-3 py-3 rounded-lg font-medium text-ld"
-            onClick={handlePaymentSubmit}
-          >
-            Make Payment
+        <div
+          className="sticky bottom-0 text-center bg-white px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
+          onClick={handlePaymentSubmit}
+        >
+          <div className="bg-[#0c831f] cursor-pointer text-white px-3 py-3 rounded-lg font-medium text-[14px]">
+            <div className="font-bold text-lg">Make Payment</div>
           </div>
         </div>
       </aside>

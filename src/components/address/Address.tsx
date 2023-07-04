@@ -92,7 +92,7 @@ const AddressBar = () => {
                           htmlFor="ColorBlack"
                           className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
                         >
-                          <p className="text-sm font-medium">Home</p>
+                          <p className="text-sm font-medium font-caros">Home</p>
                         </label>
                       </div>
 
@@ -110,7 +110,7 @@ const AddressBar = () => {
                           htmlFor="ColorRed"
                           className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
                         >
-                          <p className="text-sm font-medium">Work</p>
+                          <p className="text-sm font-medium font-caros">Work</p>
                         </label>
                       </div>
 
@@ -126,9 +126,11 @@ const AddressBar = () => {
 
                         <label
                           htmlFor="ColorBlue"
-                          className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
+                          className="flex font-caros cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
                         >
-                          <p className="text-sm font-medium">Hotel</p>
+                          <p className="text-sm font-medium font-caros">
+                            Hotel
+                          </p>
                         </label>
                       </div>
 
@@ -146,7 +148,7 @@ const AddressBar = () => {
                           htmlFor="ColorGold"
                           className="flex cursor-pointer items-center justify-center rounded-lg border border-gray-100 bg-white px-2 py-1 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white"
                         >
-                          <p className="text-sm font-medium">
+                          <p className="text-sm font-medium font-caros">
                             Freinds & Family
                           </p>
                         </label>
@@ -163,13 +165,13 @@ const AddressBar = () => {
                             id="address"
                             defaultValue={info.address}
                             type="text"
-                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            className="font-caros block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
                             placeholder=" "
                             onChange={onAddressInputChange}
                           />
                           <label
                             htmlFor="address"
-                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 font-caros origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                           >
                             Complete Address
                           </label>
@@ -179,13 +181,13 @@ const AddressBar = () => {
                             id="floor"
                             defaultValue={info.floor}
                             type="text"
-                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            className="font-caros block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
                             placeholder=" "
                             onChange={onAddressInputChange}
                           />
                           <label
                             htmlFor="floor"
-                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 font-caros origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                           >
                             Floor (optional)
                           </label>
@@ -196,13 +198,13 @@ const AddressBar = () => {
                             id="landmark"
                             type="text"
                             defaultValue={info.landmark}
-                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            className="font-caros block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
                             placeholder=" "
                             onChange={onAddressInputChange}
                           />
                           <label
                             htmlFor="landmark"
-                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                            className="absolute font-semibold text-md text-slate-600  duration-300  font-caros origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                           >
                             NearBy Landmark (optional)
                           </label>
@@ -212,13 +214,13 @@ const AddressBar = () => {
                             id="receiverName"
                             type="text"
                             defaultValue={info.receiverName}
-                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            className="block font-caros px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
                             placeholder=" "
                             onChange={onAddressInputChange}
                           />
                           <label
                             htmlFor="receiverName"
-                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                            className="absolute font-semibold text-md text-slate-600  duration-300 font-caros origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                           >
                             Receiver's Name *
                           </label>
@@ -228,14 +230,14 @@ const AddressBar = () => {
                             defaultValue={info.receiverPhone}
                             type="text"
                             id="receiverPhone"
-                            className="block px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
+                            className="block font-caros px-2 py-2.5 bg-[#f7f8fafe] w-full text-md text-black rounded-lg border-[1px] border-[#c9c9cafe] focus:border-black appearance-none  focus:outline-none focus:ring-0 focus:border-border peer"
                             placeholder=" "
                             maxLength={10}
                             onChange={onAddressInputChange}
                           />
                           <label
                             htmlFor="receiverPhone"
-                            className="absolute font-semibold text-md text-slate-600  duration-300 transform -translate-y-4 scale-75 top-1 z-10 origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                            className="absolute font-semibold font-caros text-md text-slate-600  duration-300  origin-[0] bg-[#f7f8fafe]  px-2 peer-focus:px-2 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                           >
                             Receiver's Phone (optional)
                           </label>
@@ -250,11 +252,11 @@ const AddressBar = () => {
         )}
 
         <div
-          className="text-center bottom-0 px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
+          className="sticky bottom-0 text-center bg-white px-4 pt-2 pb-4 min-h-[68px] _shadow_sticky"
           onClick={isFinal ? handleChange : onSubmite}
         >
-          <div className="bg-[#0c831f] cursor-pointer  text-white     px-3 py-3 rounded-lg font-medium text-ld">
-            Save Address
+          <div className="bg-[#0c831f] cursor-pointer text-white px-3 py-3 rounded-lg font-medium text-[14px]">
+            <div className="font-bold text-lg">Save Address</div>
           </div>
         </div>
       </aside>

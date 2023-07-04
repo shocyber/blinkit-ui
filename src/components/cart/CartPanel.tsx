@@ -1,7 +1,7 @@
 import { IoClose } from 'react-icons/io5';
 import { FiChevronRight } from "react-icons/fi";
-import { AiFillDelete } from "react-icons/all";
-
+ 
+ 
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { hideCart } from "../../store/ui";
@@ -12,6 +12,8 @@ import Misc from "../../lib/data/layout.json";
 import SuggestedItems from "./SuggestedItems";
 import { shuffleItems } from "../../utils/helper";
 import { showAddressBar } from "../../store/address";
+import instance from "../../utils/instance";
+import { useEffect, useState } from "react";
 
 const CartPanelItem = (props: CartItem) => {
   const { image, title, subTitle, price, mrp } = props.product;
@@ -48,9 +50,10 @@ const CartPanelItem = (props: CartItem) => {
     </div>
   );
 };
-
 const CartPanel = () => {
   const dispatch = useAppDispatch();
+  const [products, setProducts] = useState([]);
+
   const { totalAmount, totalQuantity, cartItems, billAmount, discount } =
     useAppSelector((state) => state.cart);
   const productItems: any[] = Misc.filter((item) => item.type === 77).map(
@@ -72,6 +75,14 @@ const CartPanel = () => {
     dispatch(hideCart());
     dispatch(showAddressBar());
   };
+  const fetchProductItems = async () => {
+    const { data } = await instance.get("/get-products");
+    setProducts(data.products);
+  };
+  useEffect(() => {
+    fetchProductItems();
+  }, []);
+
   return (
     <div className="fixed inset-0 h-screen w-screen z-50 overflow-hidden p-4">
       <div
@@ -131,7 +142,7 @@ const CartPanel = () => {
                     Before you checkout
                   </div>
                   <div className="relative px-3 my-2">
-                    <SuggestedItems topItems={topProducts} />
+                    <SuggestedItems topItems={products} />
                   </div>
                 </div>
                 <div className="bg-white">
