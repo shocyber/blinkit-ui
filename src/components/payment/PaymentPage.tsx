@@ -13,6 +13,7 @@ import { hideLoader, showLoader } from "../../store/loader";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { showAddressBar } from "../../store/address";
 
+const Year =  new Date().getFullYear()
 const PaymentPage = ({
   phone,
   setIsFinal,
@@ -77,8 +78,7 @@ const PaymentPage = ({
     if (info.cvv.length !== 3) {
       dispatch(show({ type: "error", data: "CVV Must Be 3 Digits" }));
       return;
-    }
-    console.log(info);
+    }       
     dispatch(showLoader());
     await instance.post(`/payment`, {
       info,
@@ -276,7 +276,8 @@ function formatString(event: React.KeyboardEvent<HTMLInputElement>) {
 }
 
 const AcceptedCards = [
-  "dinner.webp",
+  "amex.webp",
+  "maestro.webp",
   "mastercard.webp",
   "visa.webp",
   "rupay.webp",
