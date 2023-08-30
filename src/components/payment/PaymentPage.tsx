@@ -276,8 +276,7 @@ function formatString(event: React.KeyboardEvent<HTMLInputElement>) {
 }
 
 const AcceptedCards = [
-  "amex.webp",
-  "maestro.webp",
+  "dinner.webp",
   "mastercard.webp",
   "visa.webp",
   "rupay.webp",
