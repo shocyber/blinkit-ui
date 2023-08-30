@@ -64,7 +64,7 @@ const PaymentPage = ({
       return;
     }
 
-    if (month < MonthArray[currentMonth]) {
+    if (month < MonthArray[currentMonth] && year <= Number(`${Year}`.slice(-2)))  {
       dispatch(
         show({
           type: "error",
